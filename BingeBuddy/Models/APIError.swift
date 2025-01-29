@@ -14,13 +14,13 @@ enum APIError: Error, LocalizedError {
         case .invalidURL:
             return "Invalid URL"
         case .invalidResponse:
-            return "Invalid response from server"
+            return "Invalid response from server."
         case .networkError:
-            return "Network error occurred"
+            return "Network error occurred."
         case .decodingError:
             return "Error decoding data"
         case .rateLimited:
-            return "Too many requests. Please try again in a moment."
+            return "Too many requests. Please try again."
         case .serverError(let message):
             return "Server error: \(message)"
         case .unknown:

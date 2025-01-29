@@ -3,7 +3,7 @@ import Combine
 
 class WatchmodeAPI {
     private let baseURL = "https://api.watchmode.com/v1"
-    private let apiKey = "API KEY" 
+    private let apiKey = "API KEY HERE" 
     
     func fetchMovies() -> AnyPublisher<MediaResponse, Error> {
         let url = URL(string: "\(baseURL)/list-titles?apiKey=\(apiKey)&types=movie")!

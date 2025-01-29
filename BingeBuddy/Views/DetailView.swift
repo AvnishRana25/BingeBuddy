@@ -162,6 +162,7 @@ struct DetailView: View {
     @State private var cancellables = Set<AnyCancellable>()
 }
 
+//Only for personal preview
 #Preview {
     DetailView(item: MediaItem(
         id: 1,

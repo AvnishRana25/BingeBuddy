@@ -13,8 +13,6 @@ struct MediaItem: Identifiable, Codable, Hashable {
     var uniqueId: String
     
     var fullPosterURL: String? {
-        // For Watchmode API, the URLs are already complete
-        // Try to get the highest quality poster available
         let urls = [posterLarge, posterMedium, posterURL].compactMap { $0 }
         return urls.first(where: { !$0.isEmpty })
     }
@@ -28,7 +26,6 @@ struct MediaItem: Identifiable, Codable, Hashable {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
         guard let date = dateFormatter.date(from: releaseDate) else {
-            // If we can't parse the full date, try just the year
             if let year = year {
                 return "Released in \(year)"
             }

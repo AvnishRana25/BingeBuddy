@@ -46,7 +46,7 @@ class MediaViewModel: ObservableObject {
         switch apiError {
         case .networkError:
             errorTitle = "Network Error"
-            errorMessage = "Please check your internet and try again."
+            errorMessage = "Please check your internet availibity and try again."
             errorAction = .retry
             
         case .serverError(let message):
@@ -56,7 +56,7 @@ class MediaViewModel: ObservableObject {
             
         case .invalidResponse:
             errorTitle = "Data Error"
-            errorMessage = "Unable to load \(type == .movie ? "movies" : "TV shows"). Please try again later."
+            errorMessage = "Unable to load \(type == .movie ? "movies" : "TV shows"). Please try again."
             errorAction = .retry
             
         case .rateLimited:
