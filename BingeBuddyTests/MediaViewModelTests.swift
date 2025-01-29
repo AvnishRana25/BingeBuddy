@@ -9,15 +9,16 @@ final class MediaViewModelTests: XCTestCase {
     }
     
     func testMediaFetching() async throws {
-        // Test each combination
+        // Test different media types and sort orders
         for type in [MediaItem.MediaType.movie, .tvShow] {
             for sortOrder in SortOrder.allCases {
                 let api = WatchmodeAPI()
                 let publisher = api.fetchMedia(type: type, sortBy: sortOrder.rawValue)
                 let response = try await publisher.async()
                 
-                XCTAssertFalse(response.titles.isEmpty, "Response should not be empty for \(type) with sort \(sortOrder)")
-                XCTAssertTrue(response.titles.allSatisfy { $0.type == type }, "All items should be of type \(type)")
+                // Verify response
+                XCTAssertFalse(response.titles.isEmpty)
+                XCTAssertTrue(response.titles.allSatisfy { $0.type == type })
             }
         }
     }
